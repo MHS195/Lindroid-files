@@ -4,5 +4,8 @@
   <project path="vendor/extra" remote="github" name="Linux-on-droid/vendor_extra" revision="lindroid-21" />
   <project path="external/libhybris" remote="github" name="Linux-on-droid/libhybris" revision="lindroid-21" />
   <project path="external/lxc" remote="github" name="Linux-on-droid/external_lxc" revision="lindroid-21" />
+  <project path="device/htc/oce" remote="github" name="MHS195/device_htc_oce1" revision="lindroid" />
+  <project path="vendor/htc" remote="github" name="MHS195/vendor_htc_oce" revision="lineage-21.0" />
+  <project path="kernel/htc/oce" remote="github" name="MHS195/android_kernel_htc_oce" revision="LXC" />
 </manifest>
 
