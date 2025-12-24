@@ -9,13 +9,8 @@ fi
 
 # Create Lindroid and TheMuppets manifests
 mkdir -p .repo/local_manifests/
-wget https://raw.githubusercontent.com/Soupborsh/Lindroid-files/refs/heads/main/manifests/general/lindroid.xml -O .repo/local_manifests/lindroid.xml
+wget https://raw.githubusercontent.com/MHS195/Lindroid-files/refs/heads/main/manifests/general/lindroid.xml -O .repo/local_manifests/lindroid.xml
 
-# TheMuppets
-echo '<?xml version="1.0" encoding="UTF-8"?>' > .repo/local_manifests/muppets.xml
-echo '<manifest>' >> .repo/local_manifests/muppets.xml
-echo "  <project name=\"TheMuppets/proprietary_vendor_$1_$2\" path=\"vendor/$1/$2\" revision=\"lineage-21\" clone-depth=\"1\" />" >> .repo/local_manifests/muppets.xml
-echo '</manifest>' >> .repo/local_manifests/muppets.xml
 
 repo sync -c
 
@@ -45,19 +40,16 @@ echo 'CONFIG_GROUP_FREEZER=y' >> kernel/$1/$2/arch/$3/configs/$2_defconfig
 
 ## Download patches
 wget https://raw.githubusercontent.com/Soupborsh/Lindroid-files/refs/heads/main/patches/general/EventHub.patch
-wget https://github.com/android-kxxt/android_kernel_xiaomi_sm8450/commit/ae700d3d04a2cd8b34e1dae434b0fdc9cde535c7.patch
 wget https://raw.githubusercontent.com/Soupborsh/Lindroid-files/refs/heads/main/patches/general/0001-Ignore-uevent-s-with-null-name-for-Extcon-WiredAcces.patch
 wget https://github.com/Linux-on-droid/vendor_lindroid/commit/10f98759162a0034a2afa62c5977f9bcf921db13.patch
 
 ## Apply patches
 patch frameworks/native/services/inputflinger/reader/EventHub.cpp EventHub.patch
-patch kernel/$1/$2/fs/overlayfs/util.c ae700d3d04a2cd8b34e1dae434b0fdc9cde535c7.patch
 git apply 0001-Ignore-uevent-s-with-null-name-for-Extcon-WiredAcces.patch --directory=frameworks/base/
 patch -R vendor/lindroid/app/app/src/main/java/org/lindroid/ui/DisplayActivity.java 10f98759162a0034a2afa62c5977f9bcf921db13.patch
 
 ## Remove patch files
 rm EventHub.patch
-rm ae700d3d04a2cd8b34e1dae434b0fdc9cde535c7.patch
 rm 0001-Ignore-uevent-s-with-null-name-for-Extcon-WiredAcces.patch
 rm 10f98759162a0034a2afa62c5977f9bcf921db13.patch
 
