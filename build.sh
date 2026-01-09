@@ -10,13 +10,19 @@ fi
 # Create Lindroid and TheMuppets manifests
 #rm -rf .repo/local_manifests
 #repo init -u https://github.com/LineageOS-UL/android.git -b lineage-21.0 --git-lfs
-mkdir -p .repo/local_manifests/
-wget https://raw.githubusercontent.com/MHS195/Lindroid-files/refs/heads/main/manifests/general/lindroid.xml -O .repo/local_manifests/lindroid.xml
-repo sync -c
-
+#mkdir -p .repo/local_manifests/
+#wget https://raw.githubusercontent.com/MHS195/Lindroid-files/refs/heads/main/manifests/general/lindroid.xml -O .repo/local_manifests/lindroid.xml
+#repo sync -c
+git clone https://github.com/Linux-on-droid/vendor_lindroid -b lindroid-21 vendor/lindroid
+git clone https://github.com/Linux-on-droid/vendor_extra -b lindroid-21 vendor/extra
+git clone https://github.com/Linux-on-droid/libhybris -b lindroid-21 external/libhybris
+git clone https://github.com/Linux-on-droid/external_lxc -b lindroid-21 external/lxc
+git clone https://github.com/MHS195/device_htc_oce1 -b lindroid device/htc/oce
+git clone https://github.com/MHS195/vendor_htc_oce -b lineage-21.0 vendor/htc
+git clone https://github.com/MHS195/android_kernel_htc_oce -b LXC kernel/htc/oce
 #Pull device specific data
 source build/envsetup.sh
-breakfast $2
+#breakfast $2
 
 # Patches
 ## Download patches
