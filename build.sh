@@ -15,7 +15,7 @@ fi
 #repo sync -c
 git clone https://github.com/Linux-on-droid/vendor_lindroid -b lindroid-21 vendor/lindroid
 git clone https://github.com/Linux-on-droid/vendor_extra -b lindroid-21 vendor/extra
-git clone https://github.com/Linux-on-droid/libhybris -b lindroid-21 external/libhybris
+git clone https://github.com/Linux-on-droid/libhybris -b lindroid-21 libhybris
 git clone https://github.com/Linux-on-droid/external_lxc -b lindroid-21 external/lxc
 git clone https://github.com/MHS195/device_htc_oce1 -b lindroid device/htc/oce
 git clone https://github.com/MHS195/vendor_htc_oce -b lineage-21.0 vendor/htc
