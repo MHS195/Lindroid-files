@@ -8,11 +8,11 @@ if [ "$#" -ne 3 ]; then
 fi
 
 # Create Lindroid and TheMuppets manifests
-rm -rf .repo/local_manifests
-repo init -u https://github.com/LineageOS-UL/android.git -b lineage-21.0 --git-lfs
+#rm -rf .repo/local_manifests
+#repo init -u https://github.com/LineageOS-UL/android.git -b lineage-21.0 --git-lfs
 mkdir -p .repo/local_manifests/
 wget https://raw.githubusercontent.com/MHS195/Lindroid-files/refs/heads/main/manifests/general/lindroid.xml -O .repo/local_manifests/lindroid.xml
-/opt/crave/resync.sh
+repo sync -c
 
 #Pull device specific data
 source build/envsetup.sh
