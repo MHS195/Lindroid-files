@@ -35,10 +35,10 @@ rm 0001-Ignore-uevent-s-with-null-name-for-Extcon-WiredAcces.patch
 rm 10f98759162a0034a2afa62c5977f9bcf921db13.patch
 
 # Fix building by removing CONFIG_SYSVIPC from android-base.config
-KERNEL_VERSION=$(grep -E '^VERSION' kernel/$1/$2/Makefile | cut -d' ' -f3)
-PATCHLEVEL=$(grep -E '^PATCHLEVEL' kernel/$1/$2/Makefile | cut -d' ' -f3)
+#KERNEL_VERSION=$(grep -E '^VERSION' kernel/$1/$2/Makefile | cut -d' ' -f3)
+#PATCHLEVEL=$(grep -E '^PATCHLEVEL' kernel/$1/$2/Makefile | cut -d' ' -f3)
 
-sed -i '/# CONFIG_SYSVIPC is not set/d' kernel/configs/*/android-${KERNEL_VERSION}.${PATCHLEVEL}/android-base.config
+#sed -i '/# CONFIG_SYSVIPC is not set/d' kernel/configs/*/android-${KERNEL_VERSION}.${PATCHLEVEL}/android-base.config
 
 # Build
 croot
